@@ -14,6 +14,6 @@ public class Performer {
     Long id;
     @Column(name="performer_name",nullable = false)
     String name;
-    @Column(name="performer_url",nullable = true)
+    @Column(name="performer_url")
     String url;
 }
