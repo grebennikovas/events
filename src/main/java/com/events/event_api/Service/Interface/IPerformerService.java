@@ -4,7 +4,5 @@ import com.events.event_api.Dao.Entity.Performer;
 
 import java.util.List;
 
-public interface IPerformerService {
-    List<Performer> getAll();
-    Performer getById(long id);
+public interface IPerformerService extends IService<Performer> {
 }
