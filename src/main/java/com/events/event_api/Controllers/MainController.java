@@ -1,9 +1,11 @@
 package com.events.event_api.Controllers;
 
 import com.events.event_api.Dao.Entity.Campaign;
+import com.events.event_api.Dao.Entity.Hall;
 import com.events.event_api.Dao.Entity.Performer;
 import com.events.event_api.Dto.Response;
 import com.events.event_api.Service.Interface.ICampaignService;
+import com.events.event_api.Service.Interface.IHallService;
 import com.events.event_api.Service.Interface.IPerformerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -22,6 +24,8 @@ public class MainController {
     IPerformerService performerService;
     @Autowired
     ICampaignService campaignService;
+    @Autowired
+    IHallService hallService;
 
     @RequestMapping(value="/index", method = RequestMethod.GET)
     public ResponseEntity<Response<String>> getIndex(){
@@ -35,5 +39,9 @@ public class MainController {
     @RequestMapping(value="/campaign", method = RequestMethod.GET)
     public ResponseEntity<Response<List<Campaign>>> getCampaign(){
         return new ResponseEntity<>(new Response<>("",campaignService.getAll()), HttpStatus.OK);
+    }
+    @RequestMapping(value="/hall", method = RequestMethod.GET)
+    public ResponseEntity<Response<List<Hall>>> getHall(){
+        return new ResponseEntity<>(new Response<>("",hallService.getAll()), HttpStatus.OK);
     }
 }

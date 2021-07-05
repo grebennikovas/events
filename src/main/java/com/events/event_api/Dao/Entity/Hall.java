@@ -7,6 +7,14 @@ import javax.persistence.*;
 @Data
 @Entity
 @Table(schema = "sc_event")
+@NamedEntityGraphs({
+        @NamedEntityGraph(
+                name = "hallGraph",
+                attributeNodes = {
+                        @NamedAttributeNode(value="city")
+                }
+        )
+})
 public class Hall {
     @Id
     @Column(name="hall_id",nullable = false)

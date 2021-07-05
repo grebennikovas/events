@@ -8,6 +8,14 @@ import java.sql.Timestamp;
 @Data
 @Entity
 @Table(name= "campaign", schema = "sc_event")
+@NamedEntityGraphs({
+        @NamedEntityGraph(
+                name = "campaignGraph",
+                attributeNodes = {
+                        @NamedAttributeNode(value="performer")
+                }
+        )
+})
 public class Campaign {
     @Id
     @Column(name="campaign_id",nullable = false)

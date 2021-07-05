@@ -8,6 +8,16 @@ import java.util.Date;
 @Data
 @Entity
 @Table(schema = "sc_event")
+@NamedEntityGraphs({
+        @NamedEntityGraph(
+                name = "bidGraph",
+                attributeNodes = {
+                        @NamedAttributeNode(value="member"),
+                        @NamedAttributeNode(value="campaign"),
+                        @NamedAttributeNode(value="city"),
+                }
+        )
+})
 public class Bid {
     @Id
     @Column(name="bid_id",nullable = false)
